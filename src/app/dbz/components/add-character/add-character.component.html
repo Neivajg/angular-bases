@@ -2,9 +2,13 @@
 <p>add-character.component(formulario)</p>
 <div class="col">
     <h4>Agregar personaje</h4>
-        <form class="row">
-            <input type="text" placeholder="Nombre" class="form-control mb-2">
-            <input type="text" placeholder="Poder" class="form-control mb-2">
-            <button type="submit" class="btn btn-primary">Agregar </button>
+
+    <!-- Añadimos la directiva de angular (ngSubmit) en el formulario , no es necesario en el botón ya q nosotros queremos trabajar basado en el submit
+    es decir, cuando el formulario es propagado para enviarlo a un backend -->
+        <form class="row" (ngSubmit)="emitCharcater()">
+            <input type="text" name="name" [(ngModel)]="character.name" placeholder="Nombre" class="form-control mb-2">
+            <input type="text" name="power" [(ngModel)]="character.power" placeholder="Poder" class="form-control mb-2">
+            <button (click)="emitCharcater()" type="submit" class="btn btn-primary">Agregar </button>
+            <!-- {{character | json}} -->
         </form>
 </div>

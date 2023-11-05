@@ -2,7 +2,35 @@
 <p>list.component</p>
 <h4>Listado:</h4>
 <ul class="list-group">
-    <li class="list-group-item">Krillin -500</li>
-    <li class="list-group-item">Goku -10,000</li>
+    <!-- Objetos que expone el ngFor (first,last,even(para saber si es par),odd(para saber si es Impar)) -->
+    <!-- ngClass= Enlaza clases de css basado en un objeto o expresión
+        *Dentro de una clase puedes meter q segun el indice tenga un estilo u otro ej:(class="list-group-item {{i === 0 ? 'list-group-item-success': ''}}")
+        pero sería añadir mucha lógica pudiendo utilizar la directiva de angular ngClass
+    -->
+    <li *ngFor="
+    let item of characterList;
+    let i =index; 
+    let isFirts= first;
+    let isLast= last;
+    let isEven= even;
+    let isOdd= odd;
+    "  class="list-group-item d-flex justify-content-between align-items-center" 
+    [ngClass]="
+    {'list-group-item-primary': isFirts,
+    'list-group-item-dark': isLast}
+    ">
+    <div>
+        <span class="text-primary">{{i  + 1}}</span>
+        <span> {{item.name}} -</span> 
+        <strong>Power:</strong> 
+        <span> {{item.power}}. </span>
+    </div>
+        <!-- <span>Es el primero:{{isFirts}} |</span>
+        <span>Es el Último:{{isLast}} |</span>
+        <span>Es Par:{{isEven}} |</span>
+        <span>Es Impar:{{isOdd}} |</span> -->
 
+        <button (click)="onDeleteCharacter(i)" class="btn btn-danger">X</button>
+    </li>
 </ul>
+ 
