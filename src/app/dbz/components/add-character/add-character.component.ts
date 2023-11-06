@@ -21,11 +21,12 @@ export class AddCharacterComponent {
   emitCharcater():void{
     // console.log(this.character)
     //si no me llega nombre desde el formulario se devuelve , no se guarda
+
      if(this.character.name.length === 0 ) return;
 
-    this.onNewCharacter.emit(this.character)
+    this.onNewCharacter.emit(this.character);
     // Darle un valor para que se limpie cuando agregemos los personajes
-    this.character.name ='';
-    this.character.power=0
+    this.character={name :'' ,power:0};
+   
   }
 }
