@@ -5,8 +5,8 @@ import {v4 as uuid} from 'uuid'
 console.log(uuid)
 
 //Decorador que le dice a angular que lo tarte como un servicio.
-//Añadir la data
 @Injectable({providedIn: 'root'})
+//Añadir la data
 export class DbzService {
 
         //obtenemos tipo de dato de la interfaz creada para Character
@@ -28,7 +28,7 @@ export class DbzService {
          }
     ];
  
-    onNewCharacter(character:Character):void{
+   addCharacter(character:Character):void{
         //const para añadir nuevos personajes con id
             // const newCharacter:Character ={
             //     id:uuid(),
@@ -54,8 +54,7 @@ export class DbzService {
     // }
 
     deleteCharacterById(id:string){
-        this.characters = this.characters.filter(character =>character.id !== id);
-        
+        this.characters = this.characters.filter(character => character.id !== id);
     }
 
     constructor() { }

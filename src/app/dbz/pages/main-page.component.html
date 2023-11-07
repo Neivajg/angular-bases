@@ -4,10 +4,10 @@
 <!-- Podemos encontrar componentes personalizados con <ion-xxxx></ion-xxxx> -->
 <div class="row">
     <div class="col">  
-        <dbz-list (onDelete)="dbzService.deleteCharacterById($event)" [characterList]="dbzService.characters"></dbz-list>
+        <dbz-list (onDelete)="onDeleteCharacter($event)" [characterList]="characters"></dbz-list>
     </div>
     <div class="col">   
-        <dbz-charset-form (onNewCharacter)="dbzService.onNewCharacter($event)"></dbz-charset-form>
+        <dbz-charset-form (onNewCharacter)="onNewCharacter($event)"></dbz-charset-form>
     </div>
    
 </div>
